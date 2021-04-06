@@ -37,7 +37,7 @@ h3{
     background-color: yellow;
     border: 0.7rem solid black;
     border-radius: 50%;
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
 
 .wall {
@@ -52,11 +52,54 @@ h3{
 }
 
 .pacman {
-    background-color: rgb(252, 234, 63) ;
-    border-radius: 50%;
-    border: solid black;
+    position: relative;
+    border-radius: 100%;
+    border: 1em solid rgb(252, 234, 63);
     box-sizing: border-box;
+    border-right-color: black;
+    background-color: rgb(252, 234, 63);
+    animation-fill-mode: forwards;
+    
 }
+
+.pacman::before{
+    position: absolute;
+	content: "";
+    left:90%;
+    top:90%;
+	transform: translate(-120%, -160%);
+    width:0.4rem;
+    height:0.4rem;
+	border-radius: 100%;
+	background: #000;
+}
+
+.pacmanTop{
+    transform: rotate(270deg);
+    animation: mouthMove 0.3s alternate;
+}
+.pacmanBottom{
+    transform: rotate(90deg);
+    animation: mouthMove 0.3s alternate;
+}
+.pacmanRight{
+    transform: rotate(0deg);
+    animation: mouthMove 0.3s alternate;
+}
+.pacmanLeft{
+    transform: scaleX(-1);
+    animation: mouthMove 0.3s alternate;
+}
+
+@keyframes mouthMove {
+    0% {
+        border-right-color: black;
+    }
+    100% {
+        border-right-color: rgb(252, 234, 63);
+    }
+}
+
 
 .blinky {
     background-color: red;

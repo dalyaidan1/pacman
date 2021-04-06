@@ -73,10 +73,10 @@ createBoard()
 
 //starting position of pacman 
 let pacmanCurrentIndex = 490
-squares[pacmanCurrentIndex].classList.add('pacman')
+squares[pacmanCurrentIndex].classList.add('pacman', "pacmanRight")
 
 function control(e) {
-    squares[pacmanCurrentIndex].classList.remove('pacman')
+    squares[pacmanCurrentIndex].classList.remove('pacman', "pacmanTop", "pacmanBottom", "pacmanRight", "pacmanLeft")
     switch(e.keyCode) {
         case 40:
         console.log('pressed down')
@@ -86,6 +86,7 @@ function control(e) {
             pacmanCurrentIndex + width < width * width
             ) 
             pacmanCurrentIndex += width
+            squares[pacmanCurrentIndex].classList.add('pacmanBottom')
         break
         case 38:
         console.log('pressed up')
@@ -95,6 +96,7 @@ function control(e) {
             pacmanCurrentIndex - width >=0
             ) 
             pacmanCurrentIndex -= width
+            squares[pacmanCurrentIndex].classList.add('pacmanTop')
         break
         case 37: 
         console.log('pressed left')
@@ -107,6 +109,7 @@ function control(e) {
             if (pacmanCurrentIndex === 364) {
                 pacmanCurrentIndex = 391
             }
+            squares[pacmanCurrentIndex].classList.add('pacmanLeft')
         break
         case 39:
         console.log('pressed right')
@@ -119,6 +122,7 @@ function control(e) {
             if (pacmanCurrentIndex === 391) {
                 pacmanCurrentIndex = 364
             }
+            squares[pacmanCurrentIndex].classList.add('pacmanRight')
         break
     }
     squares[pacmanCurrentIndex].classList.add('pacman')
