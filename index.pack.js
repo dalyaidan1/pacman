@@ -139,6 +139,9 @@ class Ghost {
         this.className = className
         this.startIndex = startIndex
         this.speed = speed
+        this.currentIndex = startIndex
+        this.isScared = false
+        this.timerId = NaN
     }
 }
 
@@ -150,4 +153,36 @@ const ghosts = [
 ]
 
 //draw my ghosts onto my grid
-ghosts.forEach(ghost => squares[ghost.startIndex].classList.add(ghost.className))
+ghosts.forEach(ghost => {
+    squares[ghost.currentIndex].classList.add(ghost.className)
+    squares[ghost.currentIndex].classList.add('ghost')
+})
+
+//move the ghosts
+ghosts.forEach(ghost => moveGhost(ghost))
+
+function moveGhost(ghost) {
+    console.log('moved ghost')
+    const directions = [-1, +1, -width, +width]
+    let direction = directions[Math.floor(Math.random() * directions.length)]
+    console.log(direction)
+
+    ghost.timerId = setInterval(function() {
+        //all our code
+        //if the next square does NOT contain a wall and does not contain a ghost
+        if ( 
+            !squares[ghost.currentIndex + direction].classList.contains("wall") &&
+            !squares[ghost.currentIndex + direction].classList.contains("ghost")
+        ){
+            //remove any ghost
+            squares[ghost.currentIndex].classList.remove(ghost.className)
+            squares[ghost.currentIndex].classList.remove('ghost')
+            //add direction to current Index
+            ghost.currentIndex += direction
+            
+            //add ghost class
+            squares[ghost.currentIndex].classList.add(ghost.className)
+            squares[ghost.currentIndex].classList.add('ghost')  
+        } else direction = directions[Math.floor(Math.random() * directions.length)] //get a new direction if cant move
+    }, ghost.speed )
+}
