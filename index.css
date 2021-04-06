@@ -1,40 +1,61 @@
-html, body {
-    margin: 10;
-    padding: 10;
+html, body{
+    height: 100%;
+    background-color:black;
+
+}
+
+body{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+}
+
+h3{
+    flex:1;
+    color:white;
+    margin:auto;
+    text-align: center;
+    font: 2rem "Open Sans", sans-serif;
 }
 
 .grid {
+    flex:3;
     display: flex;
     flex-wrap: wrap;
-    width: 420px;
-    height: 420px;
     border: solid black;
+    background-color:black;
 }
 
 .grid div {
-    width: 15px;
-    height: 15px;   
+    width: 3.57%;
+    height: 3.57%;  
 }
 
 .pac-dot {
-    background-color: green;
-    border: 5px solid white;
+    background-color: yellow;
+    border: 0.7rem solid black;
+    border-radius: 50%;
     box-sizing: border-box;
 }
 
 .wall {
-    background-color: blue;
+    background-color:blue;
+    /* border: 5px solid black;
+    box-sizing: border-box; */
 }
 
 .power-pellet {
     background-color: green;
-    border-radius: 7.5px;
+    border-radius: 50%;
 }
 
 .pacman {
-    background-color: orange;
-    border-radius: 7.5px;
-    border: none;
+    background-color: rgb(252, 234, 63) ;
+    border-radius: 50%;
+    border: solid black;
+    box-sizing: border-box;
 }
 
 .blinky {
@@ -55,6 +76,9 @@ html, body {
 .clyde {
     background-color: orange;
     border: none;
+}
+.ghost{
+    border-radius: 50% 50% 0 0 ;
 }
 
 .scared-ghost {
