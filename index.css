@@ -8,12 +8,11 @@ body{
     width:100%;
     display: flex;
     flex-direction: row;
-    align-items: top;
+    align-items: center;
     justify-content: center;
 }
 
 h3{
-    flex:1;
     color:white;
     margin:auto;
     text-align: center;
@@ -21,7 +20,8 @@ h3{
 }
 
 .grid {
-    flex:3;
+    width:90vh;
+    height: 90vh;
     display: flex;
     flex-wrap: wrap;
     border: solid black;
@@ -29,37 +29,44 @@ h3{
 }
 
 .grid div {
-    width: 3.57%;
-    height: 3.57%;  
+    width: 3.571%;
+    height: 3.571%;  
 }
 
-.pac-dot {
+.grid .pac-dot {
     background-color: yellow;
-    border: 0.7rem solid black;
+    width: 1.071%;
+    height: 1.071%;
+    margin:1.25%; 
     border-radius: 50%;
     box-sizing: border-box;    
 }
 
 .wall {
     background-color:blue;
-    /* border: 5px solid black;
-    box-sizing: border-box; */
 }
 
-.power-pellet {
+.grid .power-pellet {
     background-color: green;
     border-radius: 50%;
+    margin:0.4%;
+    width: 2.771%;
+    height: 2.771%; 
+    box-sizing: border-box;    
 }
 
-.pacman {
+.grid .pacman {
     position: relative;
     border-radius: 100%;
-    border: 1em solid rgb(252, 234, 63);
     box-sizing: border-box;
     border-right-color: black;
     background-color: rgb(252, 234, 63);
     animation-fill-mode: forwards;
-    
+    border: 0.6rem solid rgb(252, 234, 63);
+    margin:0.2%;
+    width: calc(3.571% - 0.4%);
+    height: calc(3.571% - 0.4%);
+    /* clip-path:ellipse(67% 100% at 8% 50%); */
 }
 
 .pacman::before{
@@ -101,30 +108,29 @@ h3{
 }
 
 
-.blinky {
+.grid .blinky {
     background-color: red;
-    border: none;
 }
 
-.pinky {
+.grid .pinky {
     background-color: pink;
-    border: none;
 }
 
-.inky {
+.grid .inky {
     background-color: lightblue;
-    border: none;
 }
 
-.clyde {
+.grid .clyde {
     background-color: orange;
-    border: none;
 }
-.ghost{
+.grid .ghost{
     border-radius: 50% 50% 0 0 ;
+    border: none;
+    margin:0.3%;
+    width: 2.971%;
+    height: 2.971%;  
 }
 
-.scared-ghost {
+.grid .scared-ghost {
     background-color: aquamarine;
-    border: none;
 }
