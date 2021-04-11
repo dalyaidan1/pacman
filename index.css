@@ -62,7 +62,6 @@ h3{
     border-right-color: black;
     background-color: rgb(252, 234, 63);
     animation-fill-mode: forwards;
-    border: 0.6rem solid rgb(252, 234, 63);
     margin:0.2%;
     width: calc(3.571% - 0.4%);
     height: calc(3.571% - 0.4%);

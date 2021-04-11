@@ -72,11 +72,20 @@ createBoard()
 // right - 39
 
 //starting position of pacman 
+
 let pacmanCurrentIndex = 490
 squares[pacmanCurrentIndex].classList.add('pacman', "pacmanRight")
+const pacMouthSize = (squares[0].offsetWidth)/2.5
+
+
+// style the pac man mouth, once sizing is calculated 
+document.addEventListener("DOMContentLoaded", function(event) {
+    squares[pacmanCurrentIndex].style.border = `${pacMouthSize}px solid rgb(252, 234, 63)`;
+});
 
 function control(e) {
     squares[pacmanCurrentIndex].classList.remove('pacman', "pacmanTop", "pacmanBottom", "pacmanRight", "pacmanLeft")
+    squares[pacmanCurrentIndex].style.border = "0";
     switch(e.keyCode) {
         case 40:
         console.log('pressed down')
@@ -125,6 +134,7 @@ function control(e) {
             squares[pacmanCurrentIndex].classList.add('pacmanRight')
         break
     }
+    squares[pacmanCurrentIndex].style.border = `${pacMouthSize}px solid rgb(252, 234, 63)`;
     squares[pacmanCurrentIndex].classList.add('pacman')
     pacDotEaten()
     powerPelletEaten()
